@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig-build.json && vite build",
+    "e2e": "playwright test",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -15,6 +16,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.30.0",
     "@storybook/addon-essentials": "^7.0.0-beta.48",
     "@storybook/addon-interactions": "^7.0.0-beta.48",
     "@storybook/addon-links": "^7.0.0-beta.48",
