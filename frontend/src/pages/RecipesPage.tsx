@@ -1,7 +1,7 @@
 import React from 'react';
-import RecipeCardFront from '../components/RecipeCardFront';
+import RecipeCardFront from '../components/RecipeCard/RecipeCardFront';
 
-export default function HomePage() {
+export default function RecipesPage() {
   return (
     <div>
       <RecipeCardFront

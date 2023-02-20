@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './RecipeCardFront.module.scss';
 
 type Props = {
   title: string;
@@ -12,30 +13,8 @@ export default function RecipeCardFront({
   recipeProperties,
 }: Props) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        padding: 8,
-        gap: 8,
-        width: 300,
-        height: 325,
-        backgroundColor: 'oldlace',
-        borderRadius: 8,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          gap: 10,
-          color: 'black',
-          width: '100%',
-        }}
-      >
+    <div className={styles.cardOuter}>
+      <div className={styles.cardInner}>
         <h2
           style={{
             fontSize: '20px',

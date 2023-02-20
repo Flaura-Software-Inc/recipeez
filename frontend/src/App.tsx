@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
 import './App.css';
-import HomePage from './pages/HomePage';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState('Loading...');
-  useEffect(() => {
-    fetch('http://localhost:8000/test')
-      .then((res) => res.json())
-      .then(({ data }) => {
-        setCount(data);
-      });
-  }, []);
-
-  return <HomePage />;
+  return (
+    <div>
+      <Link to="/">
+        <button>Recipes</button>
+      </Link>
+      <Link to="/add-recipe">
+        <button>Add recipe</button>
+      </Link>
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
