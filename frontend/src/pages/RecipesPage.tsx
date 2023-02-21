@@ -3,16 +3,28 @@ import RecipeCardFront from '../components/RecipeCard/RecipeCardFront';
 
 export default function RecipesPage() {
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        gap: 24,
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
       <RecipeCardFront
         title="Test A Really Long Title Ma Ma Mia"
         imgUrl="AlsoTest"
-        recipeProperties={['test1', 'test2', 'test3']}
+        recipeProperties={['t1', 't2', 't3']}
       />
       <RecipeCardFront
         title="Test A Really Long Title Ma Ma Mia"
         imgUrl="AlsoTest"
-        recipeProperties={['test1', 'test2', 'test3']}
+        recipeProperties={['t1', 't2', 't3']}
+      />
+      <RecipeCardFront
+        title="Test A Really Long Title Ma Ma Mia"
+        imgUrl="AlsoTest"
+        recipeProperties={['t1', 't2', 't3']}
       />
     </div>
   );
