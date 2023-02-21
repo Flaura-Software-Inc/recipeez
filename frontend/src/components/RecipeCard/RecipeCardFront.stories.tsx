@@ -1,9 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react-vite';
-import {
-  RecipeCardFront,
-  RecipeCardFrontProps,
-} from '../components/RecipeCard/RecipeCardFront';
+import { RecipeCardFront, RecipeCardFrontProps } from './RecipeCardFront';
 
 export default {
   title: 'Recipe Card: Front',

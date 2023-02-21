@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeCardFront from '../components/RecipeCard/RecipeCardFront';
+import { RecipeCardFront } from '../components/RecipeCard/RecipeCardFront';
 
 export default function RecipesPage() {
   return (
