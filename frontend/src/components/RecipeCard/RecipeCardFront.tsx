@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './RecipeCardFront.module.scss';
+import defaultImg from '../../assets/defaultImg.jpg';
 
 export type RecipeCardFrontProps = {
   title: string;
   recipeProperties: string[];
   imgUrl?: string;
+};
+
+const imgError = (e) => {
+  e.target.src = defaultImg;
 };
 
 export function RecipeCardFront({
@@ -54,7 +59,8 @@ export function RecipeCardFront({
         <img
           style={{ minHeight: '100%', objectFit: 'cover', width: '100%' }}
           alt="food"
-          src="https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Corndogs-7832ef6.jpg?quality=90&resize=556,505"
+          src={imgUrl}
+          onError={(e) => imgError(e)}
         />
       </div>
     </div>
