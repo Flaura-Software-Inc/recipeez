@@ -3,8 +3,8 @@ import styles from './RecipeCardFront.module.scss';
 
 export type RecipeCardFrontProps = {
   title: string;
-  imgUrl: string;
   recipeProperties: string[];
+  imgUrl?: string;
 };
 
 export function RecipeCardFront({

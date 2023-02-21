@@ -8,9 +8,14 @@ export default function RecipesPage() {
         display: 'flex',
         gap: 24,
         flexWrap: 'wrap',
-        justifyContent: 'center',
+        // justifyContent: 'center',
       }}
     >
+      <RecipeCardFront
+        title="Test A Really Long Title Ma Ma Mia"
+        imgUrl="AlsoTest"
+        recipeProperties={['t1', 't2', 't3']}
+      />
       <RecipeCardFront
         title="Test A Really Long Title Ma Ma Mia"
         imgUrl="AlsoTest"
