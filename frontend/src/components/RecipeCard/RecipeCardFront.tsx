@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './RecipeCardFront.module.scss';
 
-type Props = {
+export type RecipeCardFrontProps = {
   title: string;
   imgUrl: string;
   recipeProperties: string[];
 };
 
-export default function RecipeCardFront({
+export function RecipeCardFront({
   title,
   imgUrl,
   recipeProperties,
-}: Props) {
+}: RecipeCardFrontProps) {
   return (
     <div className={styles.cardOuter}>
       <div className={styles.cardInner}>
@@ -42,11 +42,6 @@ export default function RecipeCardFront({
           margin: 0,
         }}
       />
-      {/* <img
-        style={{ maxWidth: '100%' }}
-        alt="food"
-        src="https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Corndogs-7832ef6.jpg?quality=90&resize=556,505"
-      /> */}
       <div
         style={{
           width: '100%',
