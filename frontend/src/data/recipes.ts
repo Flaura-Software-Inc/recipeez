@@ -18,7 +18,7 @@ const recipes = [
     prepTime: 20,
     cookTime: 20,
     ovenTemp: 200,
-    ovenTempUnit: 'C',
+    ovenTempUnit: 'C', // TODO: automatically convert F to C
     yield: 'ServingNum',
     difficulty: 'easy/med/hard',
     proteinPerServing: 34,
