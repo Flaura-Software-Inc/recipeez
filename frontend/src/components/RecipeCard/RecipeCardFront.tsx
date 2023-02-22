@@ -8,8 +8,8 @@ export type RecipeCardFrontProps = {
   imgUrl?: string;
 };
 
-const imgError = (e) => {
-  e.target.src = defaultImg;
+const imgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  e.currentTarget.src = defaultImg;
 };
 
 export function RecipeCardFront({
