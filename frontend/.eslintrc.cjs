@@ -30,10 +30,10 @@ module.exports = {
         devDependencies: [
           '**/*.stories.*',
           'playwright.config.ts',
-          '**/*.spec.*'
+          '**/*.spec.*',
         ],
-        peerDependencies: true
-      }
-    ]
+        peerDependencies: true,
+      },
+    ],
   },
 };

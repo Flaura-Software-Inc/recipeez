@@ -14,7 +14,7 @@ const imgError = (e) => {
 
 export function RecipeCardFront({
   title,
-  imgUrl,
+  imgUrl = '',
   recipeProperties,
 }: RecipeCardFrontProps) {
   return (
