@@ -1,32 +1,49 @@
-import { createWorker, Worker } from 'tesseract.js';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export default function AddRecipePage() {
-  const [ocr, setOcr] = useState('Recognizing...');
-  const [worker, setWorker] = useState<Worker>();
+  const [lookupUrl, setLookupUrl] = useState<string>();
+  const [recipeJson, setRecipeJson] = useState<string>();
+  const [recipeLookupMessage, setRecipeLookupMessage] = useState<string>();
+  const [domParser] = useState(new DOMParser());
 
-  const doOCR = async () => {
-    if (!worker) {
-      setWorker(
-        await createWorker({
-          logger: (m) => console.log(m),
+  const extractRecipeJson = useCallback(() => {
+    setRecipeJson(undefined);
+    if (!lookupUrl?.trim()) {
+      setRecipeLookupMessage('Enter a URL!');
+    } else {
+      setRecipeLookupMessage(undefined);
+      fetch(lookupUrl)
+        .then((res) => res.text())
+        .then((html) => {
+          const parsedHtml = domParser.parseFromString(html, 'text/html');
+          const recipeScriptTag = parsedHtml.querySelector(
+            'script[type="application/ld+json"]'
+          );
+          if (!recipeScriptTag) {
+            setRecipeLookupMessage('Could not find recipe at provided URL');
+          } else {
+            setRecipeJson(recipeScriptTag.innerHTML);
+          }
         })
-      );
+        .catch((reason) => {
+          setRecipeLookupMessage(reason.toString());
+        });
     }
-    await worker!.load();
-    await worker!.loadLanguage('eng');
-    await worker!.initialize('eng');
-    const {
-      data: { text },
-    } = await worker!.recognize('https://i.ibb.co/yNpyTL1/upscaled-recipe.jpg');
-    setOcr(text);
-  };
-  useEffect(() => {
-    doOCR();
-  });
+  }, [domParser, lookupUrl]);
+
   return (
     <div className="App">
-      <p>{ocr}</p>
+      <form>
+        <button type="button" onClick={() => extractRecipeJson()}>
+          Look up recipe
+        </button>
+        <input
+          type="text"
+          onChange={(input) => setLookupUrl(input.target.value)}
+        />
+        {recipeLookupMessage && <p>{recipeLookupMessage}</p>}
+        {recipeJson && <p>{recipeJson}</p>}
+      </form>
     </div>
   );
 }
