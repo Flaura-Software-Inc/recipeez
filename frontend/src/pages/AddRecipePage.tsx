@@ -12,7 +12,7 @@ export default function AddRecipePage() {
       setRecipeLookupMessage('Enter a URL!');
     } else {
       setRecipeLookupMessage(undefined);
-      fetch(lookupUrl)
+      fetch(`http://localhost:8000/fetch-html?url=${lookupUrl}`)
         .then((res) => res.text())
         .then((html) => {
           const parsedHtml = domParser.parseFromString(html, 'text/html');
