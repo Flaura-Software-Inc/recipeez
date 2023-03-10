@@ -33,6 +33,7 @@ module.exports = {
           '**/*.stories.*',
           'playwright.config.ts',
           '**/*.spec.*',
+          'vite.config.ts'
         ],
         peerDependencies: true,
       },
