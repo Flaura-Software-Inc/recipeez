@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { Rating } from '@smastrom/react-rating';
+import RatingSelector from './components/RatingSelector/RatingSelector';
 
 type RecipeIngredient = {
   ingredient: string;
@@ -265,12 +265,7 @@ export default function CreateRecipeForm() {
           Cook time
           <input type="text" {...register('cookTime')} />
         </div>
-        <Rating
-          value={rating}
-          onChange={setRating}
-          items={10}
-          style={{ maxWidth: '300px' }}
-        />
+        <RatingSelector setRating={setRating} currentRating={rating} />
       </form>
     </div>
   );

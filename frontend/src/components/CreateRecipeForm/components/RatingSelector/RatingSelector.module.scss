@@ -1,0 +1,10 @@
+.ratingSelector {
+  display: flex;
+
+  .rating {
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    padding: 0 5px;
+  }
+}
