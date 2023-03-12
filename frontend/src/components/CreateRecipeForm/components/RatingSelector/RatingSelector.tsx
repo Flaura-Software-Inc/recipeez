@@ -18,6 +18,10 @@ export default function RatingSelector({ currentRating, setRating }: Props) {
         onMouseEnter={() => setHoveredRating(ratingValue)}
         onMouseLeave={() => setHoveredRating(undefined)}
         onClick={() => setRating(ratingValue)}
+        onKeyDown={() => setRating(ratingValue)}
+        role="radio"
+        aria-checked={currentRating === ratingValue}
+        tabIndex={0}
       >
         <Star colour={starColour} />
         {ratingValue}
